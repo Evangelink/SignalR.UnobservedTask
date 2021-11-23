@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<WarnOn>3390;$(WarnOn)</WarnOn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="App.fs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FSharp.Control.AsyncSeq" Version="3.2.1" />
+		<PackageReference Include="Fable.Remoting.DotnetClient" Version="3.22.0" />
+		<PackageReference Include="Fable.SignalR.DotNet" Version="0.11.5" />
+		<!--
+		  Because of https://github.com/Shmew/Fable.SignalR/issues/29 we need to reference:
+			- Microsoft.AspNetCore.SignalR.Client.Core 5.0.7
+			- Microsoft.AspNetCore.SignalR.Client 5.0.7
+			- Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson 5.0.7
+			- Newtonsoft.Json 13.0.1
+		  -->
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="5.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="5.0.7" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SignalRDemo.Shared\SignalRDemo.Shared.fsproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <Platforms>x64</Platforms>
+        <!-- Warning: Setting the following switch is not recommended but we need it
+         as we are using BinaryFormatter to read Calibration files. -->
+        <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Server.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Fable.Remoting.Giraffe" Version="5.6.0" />
+        <PackageReference Include="Fable.SignalR.Saturn" Version="0.11.5" />
+        <PackageReference Include="FSharp.Control.AsyncSeq" Version="3.2.1" />
+        <PackageReference Include="FSharp.Data" Version="4.2.5" />
+        <PackageReference Include="FSharp.SystemTextJson" Version="0.17.4" />
+        <!--
+          Because of https://github.com/Shmew/Fable.SignalR/issues/29 we need to reference:
+            - Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson 5.0.7
+            - Newtonsoft.Json 13.0.1
+          -->
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="5.0.7" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Saturn" Version="0.15.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SignalRDemo.Shared\SignalRDemo.Shared.fsproj" />
+    </ItemGroup>
+
+</Project>
